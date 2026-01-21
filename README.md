@@ -68,6 +68,28 @@ iverilog -g2012 -o mac_array_tb.vvp mac.v mac_array.v mac_array_4_tb.v
 vvp mac_array_tb.vvp
 gtkwave mac_array_4.vcd
 
+## 🔍 4. Add **Unit Tests + Edge Case Tests**
+Add more test vectors:
+
+- All zeros
+- Max positive and negative values
+- Random vectors
+
+This ensures the design is robust and shows real verification effort.
+
+---
+
+## 📊 5. Add a **Coverage Report**
+If you move to SystemVerilog coverage (covergroups), you can add coverage percentages:
+
+```systemverilog
+covergroup cg @(posedge clk);
+  coverpoint valid_in;
+  coverpoint valid_out;
+  coverpoint mac_out;
+endgroup
+
+Verification coverage: 92%
 
 
 
