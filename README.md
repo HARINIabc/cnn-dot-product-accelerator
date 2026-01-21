@@ -87,7 +87,7 @@ covergroup cg @(posedge clk);
   coverpoint valid_in;
   coverpoint valid_out;
   coverpoint mac_out;
-endgroup
+end
 
 
 
