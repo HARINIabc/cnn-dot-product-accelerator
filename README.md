@@ -91,5 +91,7 @@ endgroup
 
 Verification coverage: 92%
 
+localparam NUM_MAC = 8;
+localparam DATA_WIDTH = 8;
 
 
