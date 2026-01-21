@@ -94,4 +94,18 @@ Verification coverage: 92%
 localparam NUM_MAC = 8;
 localparam DATA_WIDTH = 8;
 
+name: Verilog CI
+
+on: [push]
+
+jobs:
+  sim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Simulation
+        run: |
+          iverilog -g2012 -o sim.vvp mac.v mac_array.v mac_array_4_tb.v
+          vvp sim.vvp
+
 
