@@ -1,4 +1,18 @@
 `timescale 1ns/1ps
+initial begin
+  // expected golden result
+  int signed expected = 0;
+  for (int i = 0; i < N; i++) begin
+      expected += a_arr[i] * b_arr[i];
+  end
+
+  @(posedge clk);
+  if (dot_out !== expected) begin
+    $fatal("FAIL: expected %0d got %0d", expected, dot_out);
+  end else begin
+    $display("PASS: result %0d", dot_out);
+  end
+end
 
 module mac_array_4_tb;
 
@@ -88,3 +102,4 @@ module mac_array_4_tb;
   end
 
 endmodule
+
